@@ -6,15 +6,15 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
-from preprocess import clean_text
+from src.preprocess import clean_text
 
 
-# Load dataset
-df = pd.read_csv("../data/Reviews.csv")
+# Load processed dataset
+df = pd.read_csv("data/processed.csv")
 
 
 # Keep required columns
-df = df[['Text', 'Score']]
+df = df[['Text', 'Score', 'Cleaned_Text']]
 
 
 # Remove null values
@@ -25,10 +25,6 @@ df.dropna(inplace=True)
 df['Sentiment'] = df['Score'].apply(
     lambda x: 0 if x <= 2 else 1
 )
-
-
-# Apply preprocessing
-df['Cleaned_Text'] = df['Text'].apply(clean_text)
 
 
 # Features and labels
@@ -69,11 +65,12 @@ print("Accuracy:", accuracy)
 
 
 # Save model
-joblib.dump(model, "../models/model.pkl")
+joblib.dump(model, "models/model.pkl")
 
 
 # Save vectorizer
-joblib.dump(vectorizer, "../models/vectorizer.pkl")
+joblib.dump(vectorizer, "models/vectorizer.pkl")
 
 
-print("Model and vectorizer saved.")
+print("Model and vectorizer saved successfully!")
+
