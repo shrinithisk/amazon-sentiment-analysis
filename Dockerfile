@@ -8,5 +8,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 EXPOSE 8501
 
+USER non-root
 CMD ["streamlit", "run", "main.py", "--server.address=0.0.0.0"]
 
