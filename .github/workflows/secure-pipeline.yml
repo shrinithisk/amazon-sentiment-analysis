@@ -16,7 +16,7 @@ jobs:
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4
+        Review security policy for this programming language
         with:
           fetch-depth: 0
 
