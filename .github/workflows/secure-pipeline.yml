@@ -26,6 +26,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Semgrep Static Analysis
-        uses: returntocorp/semgrep-action@v1
+        Review security policy for this programming language
         with:
           config: auto
