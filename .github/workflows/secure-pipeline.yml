@@ -16,16 +16,16 @@ jobs:
 
     steps:
       - name: Checkout Code
-        Review security policy for this programming language
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
       - name: Gitleaks Secret Scan
-        Review security policy for this programming language
+        uses: gitleaks/gitleaks-action@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Semgrep Static Analysis
-        Review security policy for this programming language
+        uses: returntocorp/semgrep-action@v1
         with:
           config: auto
